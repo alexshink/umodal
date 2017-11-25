@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery-Modal</title>
+	
+	<!-- MODAL STYLES -->
+	<link rel="stylesheet" href="modal/style.css">
+	<!-- PAGE SYLES -->
+	<style>
+		h1, h2, h3 {
+	    margin-top: 0;
+		}
+		.page {
+			max-width: 700px;
+			display: flex;
+			justify-content: space-between;
+			margin: 20px auto;
+	    font-family: monospace;
+		}
+		.block {
+	    flex: 0 0 40%;
+			display: flex;
+			flex-direction: column;
+			padding: 10px 15px;
+			border: 2px solid #666;
+		}
+		.block__inner:not(:last-child) {
+			margin-bottom: 10px;
+		}
+		.block__subtitle {
+			display: inline-block;
+	    width: 65px;
+			padding: 5px 10px;
+			background: #dadada;
+		}
+		.modal-image {
+	    max-width: 50%;
+	    float: left;
+	    margin: 5px 25px 10px 0;
+		}
+		code {
+	    width: auto;
+	    padding: 1px 5px;
+	    background: #dadada;
+		}
+	</style>
+</head>
+<body class="page">
+
+	<div class="block">
+		<h3>Встроенное содержимое:</h3>
+		<div class="block__inner">
+			<span class="block__subtitle">[LINK]:</span> <a href="link.com/link?it-doesnt-matter" class="modal__open">Встроенное содержимое</a>
+			<div class="modal">
+				<div class="modal__inner">
+					<button class="modal__close"></button>
+					<div class="modal__content">
+						<h1>Блок на странице</h1>
+						<p>Неважно, есть ли атрибут <b>'href'</b> и какое его значение - ссылка не будет открыта.</p>
+						<p>Закрыть модальное окно можно также с помощью клавиши <b>Esc</b>.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="block__inner">
+			<span class="block__subtitle">[BUTTON]:</span> <button class="modal__open">Встроенное содержимое</button>
+			<div class="modal">
+				<div class="modal__inner">
+					<button class="modal__close"></button>
+					<div class="modal__content">
+						<h1>Блок на странице #2</h1>
+						<ul>
+							<li>Содержимое для модального окна должно быть</li>
+						</ul>
+						<p>Закрыть модальное окно можно с помощью клавиши <b>Esc</b>.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="block__inner">
+			<span class="block__subtitle">[SPAN]:</span> <span class="modal__open">Встроенное содержимое</span>
+			<div class="modal">
+				<div class="modal__inner">
+					<button class="modal__close"></button>
+					<div class="modal__content">
+						<img src="img/milky-way.jpg" class="modal-image" alt="Изображение модального окна">
+						<h1>Блок на странице #3</h1>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro magnam odit ab vero enim debitis ratione incidunt esse id soluta dolorum laudantium sequi molestias ex at iusto ullam et adipisci deserunt, sapiente voluptates architecto facere veniam aliquam consequatur. Nemo, ab minima harum qui provident! Est non consequuntur, unde consequatur modi impedit laboriosam ea, ab accusamus perspiciatis laudantium dolore vitae necessitatibus illo sunt quam repudiandae inventore officia distinctio possimus nesciunt libero, iusto provident voluptate odio. Animi autem molestiae totam porro, eveniet asperiores! Corporis nam libero veritatis rerum? Nemo tempore, qui tenetur reiciendis praesentium quaerat vitae vel magni odio dolor quibusdam a recusandae, ducimus necessitatibus illum! Hic ratione, vel quia quisquam, ex, voluptates architecto at officiis, reprehenderit blanditiis quod. Suscipit temporibus, recusandae nisi accusamus incidunt esse culpa explicabo ipsum iure eius vel, minima ducimus animi, laudantium amet harum atque eum voluptates nostrum omnis corporis. Accusantium ad quae laudantium nam consequuntur blanditiis. Beatae veniam voluptatum cum, quasi tempore eveniet! Unde illum reiciendis consequatur, nulla, dolor eaque neque maxime blanditiis? Quisquam voluptas dicta vero fuga tempore quos rerum aspernatur, nihil accusantium alias deserunt.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="block">
+		<h3>Загрузка с других страниц:</h3>
+		<div class="block__inner">
+			<span class="block__subtitle">[LINK]:</span> <a href="link-doesnt-matter" modal-src="outsider.html" modal-content=".info" class="modal__open">Загружаемый контент</a>
+		</div>
+		<div class="block__inner">
+			<span class="block__subtitle">[BUTTON]:</span> <button modal-src="outsider-2.html" modal-content="#content" class="modal__open">Загружаемый контент</button>
+		</div>
+		<div class="block__inner">
+			<span class="block__subtitle">[SPAN]:</span> <span modal-src="test-error-link" class="modal__open">Если не удалось загрузить</span>
+		</div>
+	</div>
+
+	<script src="jquery.min.js"></script>
+	<script src="modal/modal.js"></script>
+</body>
+</html>
