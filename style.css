@@ -1,0 +1,70 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+h2,h3,h4 {
+	font-weight: 400;
+}
+
+ul {
+	margin-left: 20px;
+  margin-top: 5px;
+}
+
+pre {
+	display: flex;
+  color: #505050;
+  padding: 0 20px;
+	background: #efefef;
+  box-shadow: inset 0 0 10px 0 #ada7a7;
+  overflow-x: auto;
+}
+
+.page {
+	font-family: 'Open Sans';
+	margin: 0;
+	font-size: 15px;
+}
+
+.container {
+	max-width: 1000px;
+	padding: 0 15px;
+	margin: 0 auto;
+}
+
+.title {
+	font-family: 'Barlow Condensed', sans-serif;
+	font-weight: 700;
+	font-size: 42px;
+	margin-top: 30px;
+}
+
+.subtitle {
+	display: flex;
+	align-items: center;
+	margin-bottom: 30px;
+}
+
+.subtitle:before {
+	content: '►';
+	font-size: 18px;
+}
+
+.intro .description {
+	font-size: 16px;
+}
+
+.heading {
+  display: inline-block;
+	margin: 30px 0 20px;
+  border-bottom: 2px dashed;
+}
+
+/* implantation */
+
+.implantation__inner {
+	display: flex;
+  justify-content: space-between;
+}
