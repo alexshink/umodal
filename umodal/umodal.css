@@ -96,8 +96,11 @@
 /* DARK STYLE */
 
 .umodal_inverse  {
-  color: #d4d4d4;
   background: rgba(0, 0, 0, 0.9);  
+}
+
+.umodal_inverse.umodal_image  {
+  color: #d4d4d4;
 }
 
 .umodal_inverse.umodal_loading:before {
@@ -121,12 +124,14 @@
   max-width: 100%;
   display: block;
   opacity: 0;
-  transition: opacity .2s;
+  margin: auto;
+  transition: opacity .2s .1s;
   -webkit-transform: translateZ(0);
   -moz-transform: translateZ(0);
   -ms-transform: translateZ(0);
   -o-transform: translateZ(0);
   transform: translateZ(0);
+  pointer-events: none;
 }
 
 .umodal__image_show {

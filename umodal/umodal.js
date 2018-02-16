@@ -3,15 +3,12 @@ $(document).ready(function(){
 // umodal closing function | функция закрытия umodal
   function umodalClose(){
   // return scrollbar to page | возвращаем скроллбар странице
-    $('body').removeClass('umodal-disable-scroll').css('padding-right', '0');
+    $('body').removeClass('umodal-disable-scroll').css({paddingRight: 0});
   // remove the indent from the umodal | убираем отступ у umodal-окна
     $('.umodal_show').css({paddingRight: 0});
   // return the scrolling position of the page | возвращаем скролл-позицию странице
     $(window).scrollTop(umodalScrollTop);
   };
-
-// page scrollbar width | ширина скроллбара страницы
-  var umodalPageScrollWidth = window.innerWidth - $(document).width();
 
 // umodal-image dynamic height | динамическая высота umodal-изображения
   $(window).resize(function(){
@@ -21,6 +18,9 @@ $(document).ready(function(){
 // open the umodal | открываем umodal-окно
   $('.umodal__open').click(function(e){
     e.preventDefault();
+
+  // page scrollbar width | ширина скроллбара страницы
+    var umodalPageScrollWidth = window.innerWidth - $(document).width();
 
   // save scrollTop position | записываем на сколько прокручена страница
     window.umodalScrollTop = $(window).scrollTop();
@@ -86,8 +86,7 @@ $(document).ready(function(){
           umodalCurrentContent.html('Не удалось загрузить изображение').fadeIn(200);
           $('.umodal_show').removeClass('umodal_loading');
         });
-      } else {
-    // if there is 'umodal-src', then load in umodal the content by link | если есть 'umodal-src', то загружаем в umodal контент по ссылке
+      } else if ( umodalContent != undefined ) {
         umodalCurrentContent.hide().load(umodalSrc + ' ' + umodalContent, function(response, status, xhr){
           if (status == 'error') {
             $(this).html('Не удалось загрузить содержимое: ' + xhr.status + ' ' + xhr.statusText);
@@ -95,8 +94,18 @@ $(document).ready(function(){
           $(this).fadeIn(200);
           $('.umodal_show').removeClass('umodal_loading');
         });
+      } else {
+      // if there is 'umodal-src', then load in umodal the content by link | если есть 'umodal-src', то загружаем в umodal контент по ссылке
+        umodalCurrentContent.hide();
+        $.get(umodalSrc, function(data) {
+          var body = data.replace(/^.*?<body>(.*?)<\/body>.*?$/s,"$1");
+          umodalCurrentContent.html(body).fadeIn(200);
+          $('.umodal_show').removeClass('umodal_loading');
+        }).fail(function() {
+          umodalCurrentContent.html('Не удалось загрузить содержимое');
+        });
       }
-      // closing and removing the open umodal | закрытие и удаление открытого umodal
+    // closing and removing the open umodal | закрытие и удаление открытого umodal
       $('.umodal_show .umodal__close').click(function(){
         $(this).closest('.umodal').fadeOut(200, function(){$(this).remove();});
         umodalClose();

@@ -18,7 +18,29 @@
       <h1 class="title">umodal</h1>
       <h2 class="subtitle">Лёгкая jQuery Модалочка</h2>
 
-      <p class="description">Всё началось с того, что на рабочем проекте понадобилось простенькое модальное окно. «fancyBox» мега-универсальный, очень многофункциональный, но слишком большой и на то время ещё имеющий несколько багов при работе на iOS, нужно было простейшее решение. Написал, столкнулся с тем же рядом проблем, включая адаптацию и корректную поддержку iOS, углубился в изучение всех нюансов, придумал практичные фиксы, поэкспериментировал, потестил и в итоге получилась "Лёгкая jQuery Модалочка" с названием «umodal». Может буду поддерживать, а может нет. По сути этот мини-модуль создавался для собственного развития при изучении JS, просто оставлю его здесь, вдруг тебе пригодится.</p>
+      <p class="description">Всё началось с того, что на рабочем проекте понадобилось простенькое модальное окно. «fancyBox» мега-универсальный, очень многофункциональный, но слишком большой и на то время ещё имеющий несколько багов при работе на iOS, нужно было простейшее решение. Написал, столкнулся с тем же рядом проблем, включая адаптацию и корректную поддержку iOS, углубился в изучение всех нюансов, придумал практичные фиксы, поэкспериментировал, потестил и в итоге получилась "Лёгкая jQuery Модалочка" с названием «umodal». Если будет спрос - буду поддерживать и развивать, пока просто оставлю её здесь, вдруг тебе пригодится.</p>
+    </section>
+
+    <section class="features">
+      <h2 class="heading">Что она делает?</h2>
+      <ol class="list">
+        <li class="list__item list__item_modal">
+          Открывает скрытый на странице блок по ID
+          <a href="link-does-not-matter" class="umodal__open" umodal-id="umodal-1">откроем?</a>
+        </li>
+        <li class="list__item list__item_image">
+          Если ссылка на изображение, то открывает его
+          <a href="https://images.pexels.com/photos/301320/pexels-photo-301320.jpeg" class="umodal__open">посмотрим?</a>
+        </li>
+        <li class="list__item list__item_ajax">
+          Загружает с помощью AJAX содержимое другой страницы
+          <a href="" class="umodal__open" umodal-src="another.html">загрузим?</a>
+        </li>
+        <li class="list__item list__item_ajax-content">
+          Также загружает контент из указанного блока другой страницы
+          <a href="" class="umodal__open" umodal-src="another.html" umodal-content=".content">проверим?</a>
+        </li>
+      </ol>
     </section>
     
     <!-- ВНЕДРЕНИЕ -->
@@ -34,21 +56,35 @@
           </ul>
         </div>
         <pre>
-          <code>
-&lt;script src="//code.jquery.com/jquery-3.3.1.min.js"&gt;&lt;/script&gt;
+          <code>&lt;script src="//code.jquery.com/jquery-3.3.1.min.js"&gt;&lt;/script&gt;
 
 &lt;link rel="stylesheet" href="umodal.min.css"&gt;
-&lt;script src="umodal.min.js"&gt;&lt;/script&gt;
-          </code>
+&lt;script src="umodal.min.js"&gt;&lt;/script&gt;</code>
         </pre>
       </div>
+    </section>
+    
+    <!-- ИСПОЛЬЗОВАНИЕ -->
+    <section class="using">
+      <h2 class="heading">Использование</h2>
 
     </section>
 
-    <p style="margin-top: 40px;">у меня уже почти 4 утра, поэтому допилю завтра...</p>
+  </div>
+
+  <!-- umodal-1 -->
+  <div umodal-id="umodal-1" class="umodal">
+    <div class="umodal__inner">
+      <button class="umodal__close" title="Закрыть [Esc]"></button>
+      <div class="umodal__content">
+        <h2>Cкрытый на странице блок</h2>
+        <p class="description">Неважно, есть ли атрибут <code>href</code> и какое его значение - ссылка не будет открыта.<br>Но при этом ссылку всегда можно открыть в новом окне.</p>
+        <p class="description">Закрыть модальное окно можно также с помощью клавиши <b>Esc</b>.</p>
+      </div>
+    </div>
   </div>
 
   <script src="jquery.min.js"></script>
-  <script src="umodal/umodal.min.js"></script>
+  <script src="umodal/umodal.js"></script>
 </body>
 </html>
