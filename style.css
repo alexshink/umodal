@@ -29,6 +29,10 @@ code {
 	background: #efefef;
 }
 
+pre code {
+	background: none;
+}
+
 a {
 	color: #37c549;
   text-decoration: none;
@@ -120,6 +124,10 @@ a:hover {
 .implantation__inner {
 	display: flex;
   justify-content: space-between;
+}
+
+.implantation .description {
+	flex-basis: 1 0 270px;
 }
 
 .another .description {

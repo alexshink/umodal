@@ -97,12 +97,18 @@ $(document).ready(function(){
       } else {
       // if there is 'umodal-src', then load in umodal the content by link | если есть 'umodal-src', то загружаем в umodal контент по ссылке
         umodalCurrentContent.hide();
-        $.get(umodalSrc, function(data) {
-          var body = data.replace(/^.*?<body>(.*?)<\/body>.*?$/s,"$1");
-          umodalCurrentContent.html(body).fadeIn(200);
-          $('.umodal_show').removeClass('umodal_loading');
-        }).fail(function() {
-          umodalCurrentContent.html('Не удалось загрузить содержимое');
+        $.ajax({
+          url: umodalSrc,
+          type: 'GET',
+          success: function(data){
+            var inBody = data.replace(/\r\n|\r|\n/g,'').match('<body[^>]*>(.*?)<\/body>')[0];
+            umodalCurrentContent.html(inBody).fadeIn(200);
+            $('.umodal_show').removeClass('umodal_loading');
+          },
+          error: function(data) {
+            umodalCurrentContent.html('Не удалось загрузить содержимое').fadeIn(200);
+            $('.umodal_show').removeClass('umodal_loading');
+          }
         });
       }
     // closing and removing the open umodal | закрытие и удаление открытого umodal
