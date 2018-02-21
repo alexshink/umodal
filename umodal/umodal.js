@@ -16,7 +16,7 @@ $(document).ready(function(){
   });
 
 // open the umodal | открываем umodal-окно
-  $('.umodal__open').click(function(e){
+  $('.umodal__open').on('click', function(e){
     e.preventDefault();
 
   // page scrollbar width | ширина скроллбара страницы
@@ -81,12 +81,13 @@ $(document).ready(function(){
         // update image dimensions | обновляем размеры изображения
           $(window).resize();
         });
-      // if the image doesn't load, then output the message | если изображение не загрухзилось, то выводим сообщение
+      // if the image doesn't load, then output the message | если изображение не загрузилось, то выводим сообщение
         umodalCurrentContent.children('.umodal__image').on('error', function(){
           umodalCurrentContent.html('Не удалось загрузить изображение').fadeIn(200);
           $('.umodal_show').removeClass('umodal_loading');
         });
       } else if ( umodalContent != undefined ) {
+        // if there is 'umodal-ontent', then load the content from the specified block | если есть 'umodal-ontent', то загружаем контент из указанного блока
         umodalCurrentContent.hide().load(umodalSrc + ' ' + umodalContent, function(response, status, xhr){
           if (status == 'error') {
             $(this).html('Не удалось загрузить содержимое: ' + xhr.status + ' ' + xhr.statusText);
@@ -95,7 +96,7 @@ $(document).ready(function(){
           $('.umodal_show').removeClass('umodal_loading');
         });
       } else {
-      // if there is 'umodal-src', then load in umodal the content by link | если есть 'umodal-src', то загружаем в umodal контент по ссылке
+      // if there is 'umodal-src' and no 'umodal-content', then load the content by link | если есть 'umodal-src' и нет 'umodal-content', то загружаем контент по ссылке
         umodalCurrentContent.hide();
         $.ajax({
           url: umodalSrc,
