@@ -7,7 +7,7 @@
   
   <link href="https://fonts.googleapis.com/css?family=Barlow+Condensed:600,700|Open+Sans" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.min.css">
   <link rel="stylesheet" href="umodal/umodal.min.css">
 </head>
 <body class="page">
@@ -17,7 +17,6 @@
     <section class="intro">
       <h1 class="title">umodal</h1>
       <h2 class="subtitle">Лёгкая jQuery Модалочка</h2>
-
       <p class="description">Всё началось с того, что на рабочем проекте понадобилось простенькое модальное окно. «fancyBox» мега-универсальный, очень многофункциональный, но слишком большой и на то время ещё имевший несколько багов при работе на iOS, нужно было простейшее решение. Написал, столкнулся с тем же рядом проблем, включая адаптацию и корректную поддержку iOS, углубился в изучение всех нюансов, придумал практичные фиксы, поэкспериментировал, потестил и в итоге получилась "Лёгкая jQuery Модалочка" с названием «umodal». Если будет спрос - буду поддерживать и развивать, пока просто оставлю её здесь, вдруг тебе пригодится.</p>
     </section>
 
@@ -71,22 +70,16 @@
     <section class="using">
       <h2 class="heading">Использование</h2>
       <p class="description">Для работы с «umodal» необходимо добавить элементу класс <code>umodal__open</code>. Это может быть любой элемент: ссылка, кнопка, изображение, текстовый блок и т.д. Если это ссылка, то значение атрибута <code>href</code> игнорируется, если это не изображение.</p>
-      <h3 class="title title_modal">Модальное окно из скрытого на странице содержимого</h3>
+      <h3 id="title_modal" class="title title_modal">Модальное окно из скрытого на странице содержимого</h3>
       <p class="description">Создаём ссылку со специальным атрибутом <code>umodal-id</code>, который свяжет её с блоком для модального окна:</p>
       <pre>
         <code>&lt;a href=&quot;link&quot; umodal-id=&quot;umodal-2&quot; class=&quot;umodal__open&quot;&gt;Модальное окно&lt;/a&gt;</code>
       </pre>
-      <p class="description">В любом месте страницы создаём блок с таким же атрибутом и значением, а также классом <code>umodal</code>:</p>
+      <p class="description">В любом месте страницы создаём блок с таким же атрибутом и значением, он будет содержимым модального окна:</p>
       <pre>
-        <code>&lt;div umodal-id=&quot;umodal-2&quot; class=&quot;umodal&quot;&gt;
-  &lt;div class=&quot;umodal__inner&quot;&gt;
-    &lt;button class=&quot;umodal__close&quot;&gt;&lt;/button&gt;
-    &lt;div class=&quot;umodal__content&quot;&gt;
-      &lt;h2&gt;Содержимое модального окна&lt;/h2&gt;
-      &lt;p&gt;Содержимое модального окна должно располагаться внутри блока &lt;code&gt;.umodal__content&lt;/code&gt;&lt;/p&gt;
-      &lt;p&gt;Для закрытия модального окна можно также использовать клавишу &lt;b&gt;Esc&lt;/b&gt;&lt;/p&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
+        <code>&lt;div umodal-id=&quot;umodal-2&quot;&gt;
+  &lt;h2&gt;Содержимое модального окна&lt;/h2&gt;
+  &lt;p&gt;Для закрытия модального окна можно также использовать клавишу &lt;b&gt;Esc&lt;/b&gt;&lt;/p&gt;
 &lt;/div&gt;</code>
       </pre>
       <p class="description">Результат:</p>
@@ -115,7 +108,7 @@
         <a href="another.html" umodal-src="another.html" class="umodal__open">Модальное окно AJAX</a>
       </div>
 
-      <p class="title title_ajax">Модальное окно с содержимым из указанного блока другой страницы</p>
+      <p class="title title_ajax-content">Модальное окно с содержимым из указанного блока другой страницы</p>
       <p class="description">Также можно загрузить содержимое из определённого блока другой страницы, для этого есть специальный атрибут <code style="white-space: nowrap;">umodal-content</code>, в значении которого нужно указать соответствующий блок:</p>
       <ul>
         <li>по классу: <code>umodal-content=".class"</code></li>
@@ -143,34 +136,23 @@
       </ol>
       <br>
       <p class="description">
-        Тёмную можно применить также к модальному окну со встроенным содержимым, указав дополнительный класс <code>umodal_inverse</code> основному блоку с классом <code>modal</code>. Смена темы для остальных типов модального окна будет реализована позже, в дальнейшем применение темы по умолчанию будет указываться параметром через JS.
+        Смена темы модального окна будет реализована позже, в дальнейшем применение темы по умолчанию будет указываться параметром через JS.
       </p>
     </section>
 
   </div>
 
   <!-- umodal-1 -->
-  <div umodal-id="umodal-1" class="umodal">
-    <div class="umodal__inner">
-      <button class="umodal__close"></button>
-      <div class="umodal__content">
-        <h2>Cкрытый на странице блок</h2>
-        <p class="description">Неважно, есть ли атрибут <code>href</code> и какое его значение - ссылка не будет открыта.<br>Но при этом ссылку всегда можно открыть в новом окне.</p>
-        <p class="description">Закрыть модальное окно можно также с помощью клавиши <b>Esc</b>.</p>
-      </div>
-    </div>
+  <div umodal-id="umodal-1">
+    <h2>Cкрытый на странице блок</h2>
+    <p class="description">Неважно, есть ли атрибут <code>href</code> и какое его значение - ссылка не будет открыта.<br>Но при этом ссылку всегда можно открыть в новом окне.</p>
+    <p class="description">Закрыть модальное окно можно также с помощью клавиши <b>Esc</b>.</p>
   </div>
 
   <!-- umodal-2 -->
-  <div umodal-id="umodal-2" class="umodal">
-    <div class="umodal__inner">
-      <button class="umodal__close"></button>
-      <div class="umodal__content">
-        <h2>Содержимое модального окна</h2>
-        <p>Содержимое модального окна должно располагаться внутри блока <code>.umodal__content</code></p>
-        <p>Для закрытия модального окна можно также использовать клавишу <b>Esc</b></p>
-      </div>
-    </div>
+  <div umodal-id="umodal-2">
+    <h2>Содержимое модального окна</h2>
+    <p>Для закрытия модального окна можно также использовать клавишу <b>Esc</b></p>
   </div>
 
   <script src="jquery.min.js"></script>
