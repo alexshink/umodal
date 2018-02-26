@@ -52,6 +52,7 @@
         <div class="description">
           <p>Всё как всегда:</p>
           <ul>
+            <li>Скачиваем модалочку: <a href="umodal.zip" download>umodal.zip</a></li>
             <li>Подключаем jQuery</li>
             <li>Подключаем стили «umodal»</li>
             <li>Подключаем скрипт «umodal»</li>
@@ -125,6 +126,7 @@
       </div>
     </section>
 
+    <!-- ДОПОЛНИТЕЛЬНО -->
     <section class="additional">
       <h2 class="heading">Дополнительно</h2>
       <p class="description">
@@ -140,7 +142,38 @@
       </p>
     </section>
 
+    <section class="download">
+      <h2 class="heading">Скачать</h2>
+      <p class="description">
+        <a href="umodal.zip" download>umodal.zip</a>
+      </p>  
+    </section>
+
+    <section class="comments">
+      <div id="disqus_thread"></div>
+      <script>
+
+      var disqus_config = function () {
+      this.page.url = 'https://alexshink.github.io/umodal';  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = 'umodal-main'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+      };
+      (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = 'https://umodal.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+      })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                                  
+    </section>
   </div>
+
+  <footer>
+    <div class="container">
+      <p>Я тут: <a href="https://github.com/alexshink" target="_blank">GitHub</a></p>
+    </div>
+  </footer>
 
   <!-- umodal-1 -->
   <div umodal-id="umodal-1">
@@ -156,6 +189,6 @@
   </div>
 
   <script src="jquery.min.js"></script>
-  <script src="umodal/umodal.min.js"></script>
+  <script src="umodal/umodal.js"></script>
 </body>
 </html>
