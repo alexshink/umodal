@@ -83,7 +83,9 @@ $(document).ready(function(){
         // when the image is loaded, smoothly show it | когда изображение загрузилось, плавно его показываем
           $(this).addClass('umodal__image_show');
         // remove the preloader | убираем прелоадер
-          $('.umodal').removeClass('umodal_loading');
+          setTimeout(function(){
+            $('.umodal').removeClass('umodal_loading');
+          }, 30)
         // update image dimensions | обновляем размеры изображения
           $(window).resize();
         });
@@ -101,7 +103,9 @@ $(document).ready(function(){
             $(this).html('Не удалось загрузить содержимое: ' + xhr.status + ' ' + xhr.statusText);
           }
           $(this).fadeIn(200);
-          $('.umodal').removeClass('umodal_loading');
+          setTimeout(function(){
+            $('.umodal').removeClass('umodal_loading');
+          }, 30)
         });
       } else {
       // if there is 'umodal-src' and no 'umodal-content', then load the content by link | если есть 'umodal-src' и нет 'umodal-content', то загружаем контент по ссылке
@@ -112,11 +116,15 @@ $(document).ready(function(){
           success: function(data){
             var inBody = data.replace(/\r\n|\r|\n/g,'').match('<body[^>]*>(.*?)<\/body>')[0];
             umodalCurrentContent.html(inBody).fadeIn(200);
-            $('.umodal').removeClass('umodal_loading');
+            setTimeout(function(){
+              $('.umodal').removeClass('umodal_loading');
+            }, 30)
           },
           error: function(data) {
             umodalCurrentContent.html('Не удалось загрузить содержимое').fadeIn(200);
-            $('.umodal').removeClass('umodal_loading');
+            setTimeout(function(){
+              $('.umodal').removeClass('umodal_loading');
+            }, 30)
           }
         });
       }

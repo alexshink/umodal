@@ -162,9 +162,9 @@ a:hover {
 
 .implantation .description {
 	-webkit-box-flex: 1;
-	-webkit-flex: 1 0 270px;
-	    -ms-flex: 1 0 270px;
-	        flex: 1 0 270px;
+	-webkit-flex: 1 0 290px;
+	    -ms-flex: 1 0 290px;
+	        flex: 1 0 290px;
 }
 
 .another .description {
