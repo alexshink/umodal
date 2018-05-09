@@ -54,6 +54,31 @@ a:hover {
 	text-decoration: underline;
 }
 
+.btn {
+  color: #fff;
+  padding: 5px 15px;
+  border: 0;
+  border-radius: 4px;
+  background: #37c587;
+	-webkit-appearance: none;
+  -moz-appearance: none;
+	     appearance: none;
+  -webkit-transition: all .1s;
+  -o-transition: all .1s;
+  transition: all .1s;
+  outline: none;
+  cursor: pointer;
+}
+
+.btn:focus,
+.btn:hover {
+  -webkit-box-shadow: 0 3px 10px -3px #000;
+          box-shadow: 0 3px 10px -3px #000;
+  -webkit-transform: translateY(-2px);
+      -ms-transform: translateY(-2px);
+          transform: translateY(-2px);
+}
+
 .page {
 	font-family: 'Open Sans';
 	padding-top: 30px;
@@ -227,11 +252,80 @@ a:hover {
 	margin-right: 10px;
 }
 
+/* examples */
+
+.examples__item {
+	display: inline-block;
+  padding: 15px 20px;
+  text-align: center;
+  margin-right: 20px;
+	margin-bottom: 20px;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+}
+
+.examples__item-title {
+	margin-bottom: 20px;
+}
+
+/* contact form */
+
+.contact-form {
+	text-align: center;
+}
+
+.contact-form__fieldset {
+	margin-bottom: 20px;
+	border: 0;
+	background: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
+.contact-form__field {
+  width: 280px;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1;
+  padding: 8px 12px;
+  border: 1px solid #c5c5c5;
+  resize: none;
+}
+
+.contact-form__field_message {
+	height: 100px;
+}
+
+.title_contact-form {
+  text-transform: uppercase;
+  font-size: 22px;
+  text-align: center;
+}
+
+/* custom close */
+
+.custom-close {
+	max-width: 400px;
+}
+
+.custom-close__button {
+	display: block;
+  margin-left: auto;
+  padding: 10px 15px;
+}
+
+.umodal_custom-close .umodal__close {
+	display: none;
+}
+
 /* comments */
 
 .comments {
 	margin-top: 80px;
 }
+
+/* footer */
 
 footer {
   color: #fff;
@@ -241,13 +335,25 @@ footer {
 }
 
 footer p {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
 	display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 footer a {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
 	display: flex;
-	align-items: center;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
 }
 
 footer a:before {
@@ -263,13 +369,15 @@ footer a:before {
 @media screen and (max-width: 500px) {
 	.implantation__inner {
 		-webkit-flex-wrap: wrap;
-		-ms-flex-wrap: wrap;
-		-o-flex-wrap: wrap;
-		flex-wrap: wrap;
+		    -ms-flex-wrap: wrap;
+		        flex-wrap: wrap;
 	}
 	.implantation .description {
-		-webkit-flex-basis: 100%;
-		    -ms-flex-preferred-size: 100%;
-		        flex-basis: 100%;
+    -webkit-flex-basis: 100%;
+        -ms-flex-preferred-size: 100%;
+            flex-basis: 100%;
+	}
+	.examples__item {
+		width: 100%;
 	}
 }

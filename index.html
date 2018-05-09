@@ -21,14 +21,12 @@
 <body class="page">
   <div class="container">
     
-    <!-- ВВЕДЕНИЕ -->
     <section class="intro">
       <h1 class="title">umodal</h1>
       <h2 class="subtitle">Лёгкая jQuery Модалочка</h2>
       <p class="description">Всё началось с того, что на рабочем проекте понадобилось простенькое модальное окно. «fancyBox» мега-универсальный, очень многофункциональный, но слишком большой и на то время ещё имевший несколько багов при работе на iOS, нужно было простейшее решение. Написал, столкнулся с тем же рядом проблем, включая адаптацию и корректную поддержку iOS, углубился в изучение всех нюансов, придумал практичные фиксы, поэкспериментировал, потестил и в итоге получилась "Лёгкая jQuery Модалочка" с названием «umodal». Если будет спрос - буду поддерживать и развивать, пока просто оставлю её здесь, вдруг тебе пригодится.</p>
     </section>
 
-    <!-- ВОЗМОЖНОСТИ -->
     <section class="features">
       <h2 class="heading">Что она делает?</h2>
       <div class="description">
@@ -53,7 +51,6 @@
       </div>
     </section>
     
-    <!-- ВНЕДРЕНИЕ -->
     <section class="implantation">
       <h2 class="heading">Внедрение</h2>
       <div class="implantation__inner">
@@ -75,7 +72,6 @@
       </div>
     </section>
     
-    <!-- ИСПОЛЬЗОВАНИЕ -->
     <section class="using">
       <h2 class="heading">Использование</h2>
       <p class="description">Для работы с «umodal» необходимо добавить элементу класс <code>umodal__open</code>. Это может быть любой элемент: ссылка, кнопка, изображение, текстовый блок и т.д. Если это ссылка, то значение атрибута <code>href</code> игнорируется, если это не изображение.</p>
@@ -134,7 +130,6 @@
       </div>
     </section>
 
-    <!-- ДОПОЛНИТЕЛЬНО -->
     <section class="additional">
       <h2 class="heading">Дополнительно</h2>
       <p class="description">
@@ -157,13 +152,30 @@
       </p>  
     </section>
 
+    <section class="examples">
+      <h2 class="heading examples__heading">Примеры</h2>
+      <div class="examples__inner">
+
+        <div class="examples__item">
+          <h3 class="examples__item-title">Контактная форма</h3>
+          <button type="button" umodal-id="contact-form" class="btn umodal__open">Открыть</button>
+        </div>
+
+        <div class="examples__item">
+          <h3 class="examples__item-title">Кнопка закрытия</h3>
+          <button type="button" umodal-id="custom-close" class="btn umodal__open">Открыть</button>
+        </div>
+
+      </div>
+    </section>
+
     <section class="comments">
       <div id="disqus_thread"></div>
       <script>
 
       var disqus_config = function () {
-      this.page.url = 'https://alexshink.github.io/umodal';  // Replace PAGE_URL with your page's canonical URL variable
-      this.page.identifier = 'umodal-main'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+      this.page.url = 'https://alexshink.github.io/umodal';
+      this.page.identifier = 'umodal-main';
       };
       (function() { // DON'T EDIT BELOW THIS LINE
       var d = document, s = d.createElement('script');
@@ -196,7 +208,40 @@
     <p>Для закрытия модального окна можно также использовать клавишу <b>Esc</b></p>
   </div>
 
+  <!-- contact-form -->
+  <div umodal-id="contact-form">
+    <h2 class="title title_contact-form">Контактная форма</h2>
+    <form class="contact-form">
+      <fieldset class="contact-form__fieldset">
+        <input type="text" placeholder="Имя" class="contact-form__field">
+      </fieldset>
+      <fieldset class="contact-form__fieldset">
+        <input type="text" placeholder="E-mail" class="contact-form__field">
+      </fieldset>
+      <fieldset class="contact-form__fieldset">
+        <input type="text" placeholder="Тема" class="contact-form__field">
+      </fieldset>
+      <fieldset class="contact-form__fieldset">
+        <textarea placeholder="Сообщение" class="contact-form__field contact-form__field_message"></textarea>
+      </fieldset>
+      <button type="button" class="btn">Отправить</button>
+    </form>
+  </div>
+
+  <!-- custom-close -->
+  <div umodal-id="custom-close">
+    <div class="custom-close">
+      <p class="description">Если требуется закрыть модальное окно при нажатии на какой-либо элемент, то необходимо добавить ему класс <code>umodal__shut</code>.</p>
+      <button type="button" class="btn custom-close__button umodal__shut">ЗАКРЫТЬ ОКНО</button>
+    </div>
+  </div>
+
   <script src="jquery.min.js"></script>
   <script src="umodal/umodal.min.js"></script>
+  <script>
+    $('.examples__submit').on('click', function(e){
+      e.preventDefault();
+    })
+  </script>
 </body>
 </html>

@@ -29,6 +29,13 @@ $(document).ready(function(){
     $(window).scrollTop(umodalScrollTop);
   };
 
+  var umodalTemp = '<div class="umodal umodal_loading">' +
+                     '<div class="umodal__inner">' +
+                       '<button class="umodal__close"></button>' +
+                       '<div class="umodal__content"></div>' +
+                     '</div>' +
+                   '</div>';
+
 // OPEN THE UMODAL
   $('.umodal__open').on('click', function(e){
     e.preventDefault();
@@ -36,21 +43,13 @@ $(document).ready(function(){
     var umodalPageScrollWidth = window.innerWidth - $(document).width();
     window.umodalScrollTop = $(window).scrollTop();
 
-    setTimeout(function(){
-      $('body').addClass('umodal-disable-scroll').css({
-        paddingRight: umodalPageScrollWidth,
-        top: -umodalScrollTop
-      });
-      $('.umodal').css({paddingRight: umodalPageScrollWidth});
-    }, 200);
+    $('body').addClass('umodal-disable-scroll').css({
+      paddingRight: umodalPageScrollWidth,
+      top: -umodalScrollTop
+    });
+    $('.umodal').css({paddingRight: umodalPageScrollWidth});
 
   // umodal
-    var umodalTemp = '<div class="umodal umodal_loading">' +
-                       '<div class="umodal__inner">' +
-                         '<button class="umodal__close"></button>' +
-                         '<div class="umodal__content"></div>' +
-                       '</div>' +
-                     '</div>';
     var umodalId = $(this).attr('umodal-id');
     var umodalSrc = $(this).attr('umodal-src');
     var umodalHref = $(this).attr('href');
@@ -63,19 +62,19 @@ $(document).ready(function(){
 
   // fade in the template at the end of the 'body'
     $(umodalTemp).appendTo('body').hide().fadeIn(200);
-    var umodalCurrentContent = $('.umodal .umodal__content');
+    var umodalCurrentContent = $('.umodal__content');
 
   // opening a umodal embedded on the page
     if ( umodalId != undefined && umodalId != null ) {
-      $('.umodal').removeClass('umodal_loading')
+      $('.umodal').removeClass('umodal_loading').addClass('umodal_' + umodalId)
       var umodalParent = $($('[umodal-id="' + umodalId + '"]:not(.umodal__open)').parents()[0]);
       $('[umodal-id="' + umodalId + '"]:not(.umodal__open)').appendTo(umodalCurrentContent);
-      $('.umodal__close').click(function(){
+      $('.umodal__close, .umodal__shut').on('click', function(){
         $('.umodal').fadeOut(200, function(){
           $('.umodal__content [umodal-id]').appendTo(umodalParent);
           $(this).remove();
+          umodalClose();
         });
-        umodalClose();
       });
 
     } else {
@@ -88,12 +87,8 @@ $(document).ready(function(){
           $(this).addClass('umodal__image_show');
           setTimeout(function(){
             $('.umodal').removeClass('umodal_loading');
-          }, 30)
-          $(window).resize();
-        });
-
-      // if the image doesn't load, then output the message
-        $('.umodal__image').on('error', function(){
+          }, 50)
+        }).on('error', function(){
           umodalCurrentContent.html('Не удалось загрузить изображение').fadeIn(200);
           $('.umodal').removeClass('umodal_loading');
         });
@@ -107,7 +102,7 @@ $(document).ready(function(){
           $(this).fadeIn(200);
           setTimeout(function(){
             $('.umodal').removeClass('umodal_loading');
-          }, 30)
+          }, 50)
         });
       } else {
       // if there is 'umodal-src' and no 'umodal-content', then load the content by link
@@ -118,23 +113,21 @@ $(document).ready(function(){
           success: function(data){
             var inBody = data.replace(/\r\n|\r|\n/g,'').match('<body[^>]*>(.*?)<\/body>')[0];
             umodalCurrentContent.html(inBody).fadeIn(200);
-            setTimeout(function(){
-              $('.umodal').removeClass('umodal_loading');
-            }, 30)
+            $('.umodal').removeClass('umodal_loading');
           },
           error: function(data) {
+            $('.umodal').removeClass('umodal_loading');
             umodalCurrentContent.html('Не удалось загрузить содержимое').fadeIn(200);
-            setTimeout(function(){
-              $('.umodal').removeClass('umodal_loading');
-            }, 30)
           }
         });
       }
 
     // closing and removing the open umodal
-      $('.umodal .umodal__close').click(function(){
-        $('.umodal').fadeOut(200, function(){$(this).remove();});
-        umodalClose();
+      $('.umodal__close, .umodal__shut').click(function(){
+        $('.umodal').fadeOut(200, function(){
+          $(this).remove();
+          umodalClose();
+        });
       });
     }
     
@@ -147,16 +140,16 @@ $(document).ready(function(){
         }
       };
       safariScrollFix();
-    }, 200);
+    }, 250);
 
     $('.umodal__close').attr('title', '[Esc]');
 
-    // closing umodal on the key 'Esc'
-    $(document).keyup(function(e) {
-      if (e.keyCode === 27) {
-        $('.umodal .umodal__close').click();
-      };
-    });
+  });
 
+  // closing umodal on the key 'Esc'
+  $(document).keyup(function(e) {
+    if (e.keyCode === 27) {
+      $('.umodal__close, .umodal__shut').click();
+    };
   });
 })

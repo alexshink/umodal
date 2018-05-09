@@ -37,6 +37,8 @@
 .umodal_loading:before {
   content: '';
   position: absolute;
+  top: calc(50% - 25px);
+  left: calc(50% - 25px);
   width: 50px;
   height: 50px;
   border: 2px dashed #000;
@@ -77,7 +79,7 @@
 
 .umodal_loading .umodal__content {
   background: none;
-  border: 0;
+  border-color: transparent;
 }
 
 .umodal__open {
@@ -167,6 +169,7 @@
   }
   .umodal__content {
     border: 0;
+    padding: 20px 15px;
   }
   .umodal__close {
     width: 45px;
