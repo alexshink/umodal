@@ -37,7 +37,7 @@ $(document).ready(function(){
                    '</div>';
 
 // OPEN THE UMODAL
-  $('.umodal__open').on('click', function(e){
+  $('body').on('click', '.umodal__open', function(e){
     e.preventDefault();
 
     var umodalPageScrollWidth = window.innerWidth - $(document).width();
