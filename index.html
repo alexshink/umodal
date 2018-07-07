@@ -141,8 +141,21 @@
       </ol>
       <br>
       <p class="description">
-        Смена темы модального окна будет реализована позже, в дальнейшем применение темы по умолчанию будет указываться параметром через JS.
+        Для смены цветовой темы на тёмную необходимо указать соответствующему встроенному блоку модального окна и его кнопке в <code>umodal-id</code> дополнительный класс <code>umodal_inverse</code>:
       </p>
+      <pre>
+        <code>&lt;a href="link" umodal-id="dark-modal umodal_inverse" class="umodal__open"&gt;Модальное окно в тёмной цветовой схеме&lt;/a&gt;</code>
+      </pre>
+      <pre>
+      <code>&lt;div umodal-id="dark-modal umodal_inverse"&gt;
+  &lt;p&gt;Модальное окно с тёмной цветовой схемой. Просто добавь дополнительный класс и вуаля.&lt;/p&gt;
+&lt;/div&gt;</code>
+      </pre>
+      <p class="description">Результат:</p>
+      <div class="result">
+        <a href="link" umodal-id="dark-modal umodal_inverse" class="umodal__open">Модальное окно в тёмной цветовой схеме</a>
+      </div>
+
     </section>
 
     <section class="download">
@@ -166,23 +179,27 @@
           <button type="button" umodal-id="custom-close" class="btn umodal__open">Открыть</button>
         </div>
 
+        <div class="examples__item">
+          <h3 class="examples__item-title">Тёмная цветовая схема</h3>
+          <button type="button" umodal-id="dark-scheme umodal_inverse" class="btn umodal__open">Открыть</button>
+        </div>
+
       </div>
     </section>
 
     <section class="comments">
       <div id="disqus_thread"></div>
       <script>
-
-      var disqus_config = function () {
-      this.page.url = 'https://alexshink.github.io/umodal';
-      this.page.identifier = 'umodal-main';
-      };
-      (function() { // DON'T EDIT BELOW THIS LINE
-      var d = document, s = d.createElement('script');
-      s.src = 'https://umodal.disqus.com/embed.js';
-      s.setAttribute('data-timestamp', +new Date());
-      (d.head || d.body).appendChild(s);
-      })();
+        var disqus_config = function () {
+          this.page.url = 'https://alexshink.github.io/umodal';
+          this.page.identifier = 'umodal-main';
+        };
+        (function() { // DON'T EDIT BELOW THIS LINE
+          var d = document, s = d.createElement('script');
+          s.src = 'https://umodal.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
       </script>
       <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
                                   
@@ -236,12 +253,17 @@
     </div>
   </div>
 
+  <!-- dark-modal -->
+  <div umodal-id="dark-modal umodal_inverse">
+    <p class="description" style="max-width: 310px; margin-bottom: 0;">Модальное окно с тёмной цветовой схемой. Просто добавь дополнительный класс и вуаля.</p>
+  </div>
+
+  <!-- dark-scheme -->
+  <div umodal-id="dark-scheme umodal_inverse">
+    <p class="description" style="max-width: 310px; margin-bottom: 0;">Модальное окно с тёмной цветовой схемой. Просто добавь дополнительный класс <code>umodal_inverse</code> в <code>umodal-id</code>.<br><br>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium repellendus mollitia ex fugit, autem quo voluptatum rem eum odit unde dignissimos! Veniam sed laudantium nulla voluptatem, doloribus, debitis perspiciatis eveniet, magnam esse amet, rerum vero in culpa ex tempora pariatur odio doloremque minus consequuntur nihil. Excepturi quibusdam perferendis saepe beatae?</p>
+  </div>
+
   <script src="jquery.min.js"></script>
   <script src="umodal/umodal.min.js"></script>
-  <script>
-    $('.examples__submit').on('click', function(e){
-      e.preventDefault();
-    })
-  </script>
 </body>
 </html>
