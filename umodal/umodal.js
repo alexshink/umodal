@@ -136,7 +136,7 @@ $(document).ready(function(){
           },
           error: function(data) {
             $('.umodal').removeClass('umodal_loading');
-            umodalCurrentContent.html('РќРµ СѓРґР°Р»РѕСЃСЊ Р·Р°РіСЂСѓР·РёС‚СЊ СЃРѕРґРµСЂР¶РёРјРѕРµ').fadeIn(200);
+            umodalCurrentContent.html('Не удалось загрузить содержимое').fadeIn(200);
           }
         });
       }
