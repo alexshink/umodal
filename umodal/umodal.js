@@ -54,6 +54,8 @@ $(document).ready(function(){
     var umodalSrc = $(this).attr('umodal-src');
     var umodalHref = $(this).attr('href');
     var umodalContent = $(this).attr('umodal-content');
+    var umodalClass = $(this).attr('umodal-class');
+    var umodalAjaxHeaders = $(this).attr('umodal-accept');
 
   // check for an image
     if ( umodalHref != undefined ) {
@@ -107,17 +109,34 @@ $(document).ready(function(){
       } else {
       // if there is 'umodal-src' and no 'umodal-content', then load the content by link
         umodalCurrentContent.hide();
+        var ajaxAccept;
+        switch(umodalAjaxHeaders) {
+          case 'json':
+            ajaxAccept = {accept: 'application/json'};
+            break;
+
+          case 'xml':
+            ajaxAccept = {accept: 'application/xml'};
+            break;
+
+          default:
+            ajaxAccept = {accept: 'text/html'};
+        }
         $.ajax({
           url: umodalSrc,
           type: 'GET',
+          headers: ajaxAccept,
           success: function(data){
-            var inBody = data.replace(/\r\n|\r|\n/g,'').match('<body[^>]*>(.*?)<\/body>')[0];
+            var inBody = JSON.stringify(data);
+            if ( !umodalAjaxHeaders && data.match('<body[^>]*>') != null ) {
+              inBody = data.replace(/\r\n|\r|\n/g,'').match('<body[^>]*>(.*?)<\/body>')[0];
+            }
             umodalCurrentContent.html(inBody).fadeIn(200);
             $('.umodal').removeClass('umodal_loading');
           },
           error: function(data) {
             $('.umodal').removeClass('umodal_loading');
-            umodalCurrentContent.html('Не удалось загрузить содержимое').fadeIn(200);
+            umodalCurrentContent.html('РќРµ СѓРґР°Р»РѕСЃСЊ Р·Р°РіСЂСѓР·РёС‚СЊ СЃРѕРґРµСЂР¶РёРјРѕРµ').fadeIn(200);
           }
         });
       }
@@ -129,8 +148,13 @@ $(document).ready(function(){
           umodalClose();
         });
       });
-    }
-    
+    };
+
+    // add custom class to umodal
+    if ( umodalClass != undefined ) {
+      $('.umodal').addClass(umodalClass);
+    };
+
     // for safari scroll fix
     setTimeout(function(){
       var z = $('.umodal__inner *').length;
