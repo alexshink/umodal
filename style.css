@@ -168,6 +168,15 @@ blockquote {
 
 /* INFO */
 
+.info__inner {
+  display: flex;
+}
+
+.info__item_type_likes {
+  padding-top: 20px;
+  margin-left: auto;
+}
+
 .info__logo {
   font-family: 'Barlow Condensed', sans-serif;
   font-size: 42px;
@@ -327,5 +336,11 @@ blockquote {
   .examples__item {
     flex: 1 0 100%;
     margin-right: 0;
+  }
+}
+
+@media screen and (max-width: 370px) {
+  .info__title:before {
+    display: none;
   }
 }

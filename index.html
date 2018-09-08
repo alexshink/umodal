@@ -22,8 +22,15 @@
   <div class="container">
     
     <section class="section info">
-      <h1 class="info__logo">umodal</h1>
-      <h2 class="info__title">Лёгкая jQuery Модалочка</h2>
+      <div class="info__inner">
+        <div class="info__item">
+          <h1 class="info__logo">umodal</h1>
+          <h2 class="info__title">Лёгкая jQuery Модалочка</h2>
+        </div>
+        <div class="info__item info__item_type_likes">
+          <span class="likebtn-wrapper" data-theme="custom" data-btn_size="40" data-f_size="20" data-icon_size="40" data-icon_l="hrt11" data-icon_l_c="#000000" data-icon_l_c_v="#37c549" data-label_c_v="#37c549" data-counter_l_c="#222222" data-bg_c="rgba(250,250,250,0)" data-bg_c_v="rgba(250,250,250,0)" data-brdr_c="rgba(198,198,198,0)" data-f_family="Trebuchet MS" data-ef_voting="push" data-identifier="item_1" data-show_like_label="false" data-dislike_enabled="false" data-icon_dislike_show="false" data-voting_cancelable="false" data-counter_count="true" data-popup_style="dark" data-share_size="small" data-item_url="https://alexshink.github.io/umodal/" data-item_title="umodal - light jquery modal" data-item_image="https://alexshink.github.io/umodal/favicon.png" data-tooltip_enabled="false"></span>
+        </div>
+      </div>
       <p class="description info__description">
         Всё началось с того, что на рабочем проекте понадобилось простенькое модальное окно. «fancyBox» мега-универсальный, очень многофункциональный, но слишком большой и на то время ещё имевший несколько багов при работе на iOS, нужно было простейшее решение. Написал, столкнулся с тем же рядом проблем, включая адаптацию и корректную поддержку iOS, углубился в изучение всех нюансов, придумал практичные фиксы, поэкспериментировал, потестил и в итоге получилась "Лёгкая jQuery Модалочка" с названием «umodal». Если будет спрос - буду поддерживать и развивать, пока просто оставлю её здесь, вдруг тебе пригодится.
       </p>
@@ -313,5 +320,9 @@
 
   <script src="jquery.min.js"></script>
   <script src="umodal/umodal.min.js"></script>
+  <script>
+    (function(d,e,s){if(d.getElementById("likebtn_wjs"))return;a=d.createElement(e);m=d.getElementsByTagName(e)[0];a.async=1;a.id="likebtn_wjs";a.src=s;m.parentNode.insertBefore(a, m)})(document,"script","//w.likebtn.com/js/w/widget.js");
+  </script>
+  
 </body>
 </html>
