@@ -15,46 +15,48 @@
   <link rel="apple-touch-icon" href="apple-touch-favicon.png">
 
   <link href="https://fonts.googleapis.com/css?family=Barlow+Condensed:600,700|Open+Sans" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.min.css">
   <link rel="stylesheet" href="umodal/umodal.min.css">
 </head>
 <body class="page">
   <div class="container">
     
-    <section class="intro">
-      <h1 class="title">umodal</h1>
-      <h2 class="subtitle">Лёгкая jQuery Модалочка</h2>
-      <p class="description">Всё началось с того, что на рабочем проекте понадобилось простенькое модальное окно. «fancyBox» мега-универсальный, очень многофункциональный, но слишком большой и на то время ещё имевший несколько багов при работе на iOS, нужно было простейшее решение. Написал, столкнулся с тем же рядом проблем, включая адаптацию и корректную поддержку iOS, углубился в изучение всех нюансов, придумал практичные фиксы, поэкспериментировал, потестил и в итоге получилась "Лёгкая jQuery Модалочка" с названием «umodal». Если будет спрос - буду поддерживать и развивать, пока просто оставлю её здесь, вдруг тебе пригодится.</p>
-    </section>
-
-    <section class="features">
-      <h2 class="heading">Что она делает?</h2>
-      <div class="description">
-        <ol class="list">
-          <li class="list__item list__item_modal">
-            Открывает скрытый на странице блок по ID
-            <a href="link-does-not-matter" class="umodal__open" umodal-id="umodal-1">откроем?</a>
-          </li>
-          <li class="list__item list__item_image">
-            Если ссылка на изображение, то открывает его
-            <a href="img/demo-2.jpeg" class="umodal__open">посмотрим?</a>
-          </li>
-          <li class="list__item list__item_ajax">
-            Загружает с помощью AJAX содержимое другой страницы
-            <a href="" class="umodal__open" umodal-src="another.html">загрузим?</a>
-          </li>
-          <li class="list__item list__item_ajax-content">
-            Также загружает контент из указанного блока другой страницы
-            <a href="" class="umodal__open" umodal-src="another.html" umodal-content=".content">проверим?</a>
-          </li>
-        </ol>
-      </div>
+    <section class="section info">
+      <h1 class="info__logo">umodal</h1>
+      <h2 class="info__title">Лёгкая jQuery Модалочка</h2>
+      <p class="description info__description">
+        Всё началось с того, что на рабочем проекте понадобилось простенькое модальное окно. «fancyBox» мега-универсальный, очень многофункциональный, но слишком большой и на то время ещё имевший несколько багов при работе на iOS, нужно было простейшее решение. Написал, столкнулся с тем же рядом проблем, включая адаптацию и корректную поддержку iOS, углубился в изучение всех нюансов, придумал практичные фиксы, поэкспериментировал, потестил и в итоге получилась "Лёгкая jQuery Модалочка" с названием «umodal». Если будет спрос - буду поддерживать и развивать, пока просто оставлю её здесь, вдруг тебе пригодится.
+      </p>
     </section>
     
-    <section class="implantation">
-      <h2 class="heading">Внедрение</h2>
+    <!-- FEATURES -->
+    <section class="section features">
+      <h2 class="section__title">Что она делает?</h2>
+      <ol>
+        <li>
+          Открывает скрытый на странице блок по ID
+          <a href="link-does-not-matter" class="umodal__open icon icon_type_modal" umodal-id="my-modal">откроем?</a>
+        </li>
+        <li>
+          Если ссылка на изображение, то открывает его
+          <a href="img/demo-2.jpeg" class="umodal__open icon icon_type_image">посмотрим?</a>
+        </li>
+        <li>
+          Загружает с помощью AJAX содержимое другой страницы
+          <a href="javascript:;" class="umodal__open icon icon_type_ajax" umodal-src="another.html">загрузим?</a>
+        </li>
+        <li>
+          Также загружает контент из указанного блока другой страницы
+          <a href="javascript:;" class="umodal__open icon icon_type_ajax-content" umodal-src="another.html" umodal-content=".content">проверим?</a>
+        </li>
+      </ol>
+    </section>
+
+    <!-- IMPLANTATION -->
+    <section class="section implantation">
+      <h2 class="section__title">Внедрение</h2>
       <div class="implantation__inner">
-        <div class="description">
+        <div class="implantation__description">
           <p>Всё как всегда:</p>
           <ul>
             <li>Скачиваем модалочку: <a href="umodal.zip" download>umodal.zip</a></li>
@@ -63,7 +65,7 @@
             <li>Подключаем скрипт «umodal»</li>
           </ul>
         </div>
-        <pre>
+        <pre class="implantation__pre">
           <code>&lt;script src="//code.jquery.com/jquery-3.3.1.min.js"&gt;&lt;/script&gt;
 
 &lt;link rel="stylesheet" href="umodal.min.css"&gt;
@@ -71,123 +73,157 @@
         </pre>
       </div>
     </section>
-    
-    <section class="using">
-      <h2 class="heading">Использование</h2>
-      <p class="description">Для работы с «umodal» необходимо добавить элементу класс <code>umodal__open</code>. Это может быть любой элемент: ссылка, кнопка, изображение, текстовый блок и т.д. Если это ссылка, то значение атрибута <code>href</code> игнорируется, если это не изображение.</p>
-      <h3 id="title_modal" class="title title_modal">Модальное окно из скрытого на странице содержимого</h3>
-      <p class="description">Создаём ссылку со специальным атрибутом <code>umodal-id</code>, который свяжет её с блоком для модального окна:</p>
-      <pre>
-        <code>&lt;a href=&quot;link&quot; umodal-id=&quot;umodal-2&quot; class=&quot;umodal__open&quot;&gt;Модальное окно&lt;/a&gt;</code>
-      </pre>
-      <p class="description">В любом месте страницы создаём блок с таким же атрибутом и значением, он будет содержимым модального окна:</p>
-      <pre>
-        <code>&lt;div umodal-id=&quot;umodal-2&quot;&gt;
+
+    <!-- USING -->
+    <section class="section using">
+      <h2 class="section__title">Использование</h2>
+      <p>Для работы с «umodal» необходимо добавить элементу класс <code>umodal__open</code>. Это может быть любой элемент: ссылка, кнопка, изображение, текстовый блок и т.д. Если это ссылка, то значение атрибута <code>href</code> игнорируется, если это не изображение.</p>
+      
+      <!-- standard umodal -->
+      <div class="section__item">
+        <h3 class="section__item-title icon icon_type_modal">Стандартное модальное окно</h3>
+        <p>Создаём ссылку со специальным атрибутом <code>umodal-id</code>, который свяжет её с блоком для модального окна:</p>
+        <pre>
+          <code>&lt;a href=&quot;link&quot; umodal-id=&quot;my-modal-2&quot; class=&quot;umodal__open&quot;&gt;Модальное окно&lt;/a&gt;</code>
+        </pre>
+        <p>В любом месте страницы создаём блок с таким же атрибутом и значением, он будет содержимым модального окна:</p>
+        <pre>
+          <code>&lt;div umodal-id=&quot;my-modal-2&quot;&gt;
   &lt;h2&gt;Содержимое модального окна&lt;/h2&gt;
   &lt;p&gt;Для закрытия модального окна можно также использовать клавишу &lt;b&gt;Esc&lt;/b&gt;&lt;/p&gt;
 &lt;/div&gt;</code>
-      </pre>
-      <p class="description">Результат:</p>
-      <div class="result">
-        <a href="link" umodal-id="umodal-2" class="umodal__open">Модальное окно</a>
+        </pre>
+        <p>Результат:</p>
+        <div class="result">
+          <a href="link" umodal-id="my-modal-2" class="umodal__open">Модальное окно</a>
+        </div>
+        <blockquote>
+          Обратите внимание, что значение атрибута <code>href</code> игнорируется, если это не ссылка на изображение.
+        </blockquote>
       </div>
 
-      <p class="title title_image">Модальное окно с изображением</p>
-      <p class="description">Для открытия изображения в модальном окне нужно лишь указать на него ссылку:</p>
-      <pre>
-        <code>&lt;a href=&quot;/img/demo.jpeg&quot; class=&quot;umodal__open&quot;&gt;Модальное окно c изображением&lt;/a&gt;</code>
-      </pre>
-      <p class="description">Результат:</p>
-      <div class="result">
-        <a href="img/demo.jpeg" class="umodal__open">Модальное окно c изображением</a>
+      <!-- image umodal -->
+      <div class="section__item">
+        <h3 class="section__item-title icon icon_type_image">Модальное окно с изображением</h3>
+        <p>Для открытия изображения в модальном окне нужно лишь указать на него ссылку:</p>
+        <pre>
+          <code>&lt;a href=&quot;/img/demo.jpeg&quot; class=&quot;umodal__open&quot;&gt;Модальное окно c изображением&lt;/a&gt;</code>
+        </pre>
+        <p>Результат:</p>
+        <div class="result">
+          <a href="img/demo.jpeg" class="umodal__open">Модальное окно c изображением</a>
+        </div>
       </div>
 
-      <p class="title title_ajax">Модальное окно с содержимым из другой страницы</p>
-      <p class="description">Чтобы загрузить в модальное окно содержимое другой страницы, необходимо указать её адрес в атрибуте <code>umodal-src</code>. Из страницы автоматически отфильтруется всё лишнее и будет загружено только то содержимое, которое находится между тегами <code>&lt;body&gt;</code>.</p>
-      <p class="description">Создаём ссылку со специальным атрибутом <code>umodal-src</code>:</p>
-      <pre>
-        <code>&lt;a href=&quot;another.html&quot; umodal-src=&quot;another.html&quot; class=&quot;umodal__open&quot;&gt;Модальное окно AJAX&lt;/a&gt;</code>
-      </pre>
-      <p class="description">Результат:</p>
-      <div class="result">
-        <a href="another.html" umodal-src="another.html" class="umodal__open">Модальное окно AJAX</a>
+      <!-- ajax umodal -->
+      <div class="section__item">
+        <h3 class="section__item-title icon icon_type_ajax">Модальное окно с содержимым из другой страницы</h3>
+        <p>Чтобы загрузить в модальное окно содержимое другой страницы, необходимо указать её адрес в атрибуте <code>umodal-src</code>.</p>
+        <p>Если загружаемая страница содержит полную структуру HTML-документа, включая тег <code>&lt;body&gt;</code>, то из страницы автоматически отфильтруется всё лишнее и будет загружен только контент, который находится внутри тега <code>&lt;body&gt;</code>. Иначе содержимое страницы будет загружено полностью.</p>
+        <p>По умолчанию используется HTTP-заголовок <code>{accept: 'text/html'}</code>. С помощью атрибута <code>umodal-accept</code> можно указать любой из следующих заголовков:</p>
+        <ul>
+          <li><code>umodal-accept="xml"</code></li>
+          <li><code>umodal-accept="json"</code></li>
+        </ul>
+        <p>Создаём ссылку со специальным атрибутом <code>umodal-src</code>:</p>
+        <pre>
+          <code>&lt;a href=&quot;another.html&quot; umodal-src=&quot;another.html&quot; class=&quot;umodal__open&quot;&gt;Модальное окно AJAX&lt;/a&gt;</code>
+        </pre>
+        <p>Результат:</p>
+        <div class="result">
+          <a href="another.html" umodal-src="another.html" class="umodal__open">Модальное окно AJAX</a>
+        </div>
       </div>
 
-      <p class="title title_ajax-content">Модальное окно с содержимым из указанного блока другой страницы</p>
-      <p class="description">Также можно загрузить содержимое из определённого блока другой страницы, для этого есть специальный атрибут <code style="white-space: nowrap;">umodal-content</code>, в значении которого нужно указать соответствующий блок:</p>
-      <ul>
-        <li>по классу: <code>umodal-content=".class"</code></li>
-        <li>или ID: <code>umodal-content="#id"</code></li>
-      </ul>
-      <br>
-      <p class="description">Создаём ссылку со специальными атрибутами <code>umodal-src</code> и <code>umodal-content</code>:</p>
-      <pre>
-        <code>&lt;a href=&quot;test&quot; umodal-src=&quot;another.html&quot; umodal-content=&quot;.content&quot; class=&quot;umodal__open&quot;&gt;Модальное окно AJAX&lt;/a&gt;</code>
-      </pre>
-      <p class="description">Результат:</p>
-      <div class="result">
-        <a href="test" umodal-src="another.html" umodal-content=".content" class="umodal__open">Модальное окно AJAX с указанным контентом</a>
+      <!-- ajax-content umodal -->
+      <div class="section__item">
+        <h3 class="section__item-title icon icon_type_ajax-content">Модальное окно с содержимым из указанного блока другой страницы</h3>
+        <p>Также можно загрузить содержимое из определённого блока другой страницы, для этого есть специальный атрибут <code style="white-space: nowrap;">umodal-content</code>, в значении которого нужно указать соответствующий блок:</p>
+        <ul>
+          <li>по классу: <code>umodal-content=".class"</code></li>
+          <li>или ID: <code>umodal-content="#id"</code></li>
+        </ul>
+        <br>
+        <p>Создаём ссылку со специальными атрибутами <code>umodal-src</code> и <code>umodal-content</code>:</p>
+        <pre>
+          <code>&lt;a href=&quot;test&quot; umodal-src=&quot;another.html&quot; umodal-content=&quot;.content&quot; class=&quot;umodal__open&quot;&gt;Модальное окно AJAX&lt;/a&gt;</code>
+        </pre>
+        <p>Результат:</p>
+        <div class="result">
+          <a href="test" umodal-src="another.html" umodal-content=".content" class="umodal__open">Модальное окно AJAX с указанным контентом</a>
+        </div>
       </div>
+
+      <!-- custom class umodal -->
+      <div class="section__item">
+        <h3 class="section__item-title icon icon_type_custom-class">Дополнительный класс для модального окна</h3>
+        <p>Чтобы добавить дополнительный класс для модального окна любого типа, необходимо сооответствующему элементу с классом <code>umodal__open</code> добавить атрибут <code>umodal-class</code> со значением нужного класса.</p>
+        <p>Создаём ссылку со специальным атрибутом <code>umodal-class:</code></p>
+        <pre>
+          <code>&lt;a href="link" class="umodal__open" umodal-id="custom-class" umodal-class="my-class"&gt;Модальное окно с дополнительным классом "my-class"&lt;/a&gt;</code>
+        </pre>
+        <p>Результат:</p>
+        <div class="result">
+          <a href="link" class="umodal__open" umodal-id="custom-class" umodal-class="my-class">Модальное окно с дополнительным классом "my-class"</a>
+        </div>
+        <blockquote>
+          <p>Помимо этого у самого первого родительского блока модального окна автоматически генерируется уникальный класс по следующей формуле: "umodal_" + значение из атрибута <code>umodal-id</code>.</p>
+          <p>Благодаря этим штукам можно идентифицировать любое модальное окно на странице и, например, задать для каждого разные стили.</p>
+        </blockquote>
+      </div>
+
     </section>
 
-    <section class="additional">
-      <h2 class="heading">Дополнительно</h2>
-      <p class="description">
-        Пока предусмотрено две цветовых 'темы' модуля:
-      </p>
+    <!-- ADDITIONAL -->
+    <section class="section additional">
+      <h2 class="section__title">Дополнительно</h2>
+      <p>Предусмотрено две цветовых 'темы' модуля:</p>
       <ol>
         <li>Светлая (стандартная)</li>
         <li>Тёмная: применяется при загрузке изображений</li>
       </ol>
       <br>
-      <p class="description">
-        Для смены цветовой темы на тёмную необходимо указать соответствующему встроенному блоку модального окна и его кнопке в <code>umodal-id</code> дополнительный класс <code>umodal_inverse</code>:
-      </p>
+      <p>Для смены цветовой темы на тёмную необходимо указать дополнительный класс <code>umodal_inverse</code> с помощью соответствующего атрибута <code>umodal-class</code>:</p>
       <pre>
-        <code>&lt;a href="link" umodal-id="dark-modal umodal_inverse" class="umodal__open"&gt;Модальное окно в тёмной цветовой схеме&lt;/a&gt;</code>
+        <code>&lt;a href="link" umodal-id="dark-umodal" umodal-class="umodal_inverse" class="umodal__open"&gt;Модальное окно в тёмной цветовой схеме&lt;/a&gt;</code>
       </pre>
-      <pre>
-      <code>&lt;div umodal-id="dark-modal umodal_inverse"&gt;
-  &lt;p&gt;Модальное окно с тёмной цветовой схемой. Просто добавь дополнительный класс и вуаля.&lt;/p&gt;
-&lt;/div&gt;</code>
-      </pre>
-      <p class="description">Результат:</p>
+      <p>Результат:</p>
       <div class="result">
-        <a href="link" umodal-id="dark-modal umodal_inverse" class="umodal__open">Модальное окно в тёмной цветовой схеме</a>
+        <a href="link" umodal-id="dark-umodal" umodal-class="umodal_inverse" class="umodal__open">Модальное окно в тёмной цветовой схеме</a>
       </div>
-
     </section>
 
-    <section class="download">
-      <h2 class="heading">Скачать</h2>
-      <p class="description">
-        <a href="umodal.zip" download>umodal.zip</a>
-      </p>  
+    <!-- DOWNLOAD -->
+    <section class="section download">
+      <h2 class="section__title">Скачать</h2>
+      <p><a href="umodal.zip" class="icon icon_type_download" download>umodal.zip</a></p>  
     </section>
 
-    <section class="examples">
-      <h2 class="heading examples__heading">Примеры</h2>
+    <!-- EXAMPLES -->
+    <section class="section examples">
+      <h2 class="section__title">Примеры</h2>
       <div class="examples__inner">
 
         <div class="examples__item">
-          <h3 class="examples__item-title">Контактная форма</h3>
+          <h4 class="examples__item-title">Контактная форма</h4>
           <button type="button" umodal-id="contact-form" class="btn umodal__open">Открыть</button>
         </div>
 
         <div class="examples__item">
-          <h3 class="examples__item-title">Кнопка закрытия</h3>
+          <h4 class="examples__item-title">Кнопка закрытия</h4>
           <button type="button" umodal-id="custom-close" class="btn umodal__open">Открыть</button>
         </div>
 
         <div class="examples__item">
-          <h3 class="examples__item-title">Тёмная цветовая схема</h3>
-          <button type="button" umodal-id="dark-scheme umodal_inverse" class="btn umodal__open">Открыть</button>
+          <h4 class="examples__item-title">Тёмная цветовая схема</h4>
+          <button type="button" umodal-id="dark-scheme" umodal-class="umodal_inverse" class="btn umodal__open">Открыть</button>
         </div>
 
       </div>
     </section>
 
-    <section class="comments">
+    <!-- COMMENTS -->
+    <section class="section comments">
       <div id="disqus_thread"></div>
       <script>
         var disqus_config = function () {
@@ -202,32 +238,42 @@
         })();
       </script>
       <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-                                  
     </section>
-  </div>
 
-  <footer>
+  </div> <!-- container -->
+
+  <footer class="footer">
     <div class="container">
-      <p>Я тут: <a href="https://github.com/alexshink" target="_blank">GitHub</a></p>
+      <p class="footer__description">
+        <span>Я тут:</span> <a href="https://github.com/alexshink" class="footer__link icon icon_type_github" target="_blank">GitHub</a>
+      </p>
     </div>
   </footer>
 
-  <!-- umodal-1 -->
-  <div umodal-id="umodal-1">
-    <h2>Cкрытый на странице блок</h2>
-    <p class="description">Неважно, есть ли атрибут <code>href</code> и какое его значение - ссылка не будет открыта.<br>Но при этом ссылку всегда можно открыть в новом окне.</p>
-    <p class="description">Закрыть модальное окно можно также с помощью клавиши <b>Esc</b>.</p>
+  <!-- my-modal -->
+  <div umodal-id="my-modal">
+    <h2>Стандартное модальное окно</h2>
+    <p>Неважно, есть ли атрибут <code>href</code> и какое его значение - ссылка не будет открыта.<br>Но при этом ссылку всегда можно открыть в новом окне.</p>
+    <p>Исключение: модальное окно для изображений. В этом случае изображение будет открыто по ссылке из атрибута <code>href</code>.</p>
+    <p>Закрыть модальное окно можно также с помощью клавиши <b>Esc</b>.</p>
   </div>
 
-  <!-- umodal-2 -->
-  <div umodal-id="umodal-2">
+  <!-- my-modal-2 -->
+  <div umodal-id="my-modal-2">
     <h2>Содержимое модального окна</h2>
     <p>Для закрытия модального окна можно также использовать клавишу <b>Esc</b></p>
   </div>
 
+  <!-- custom-class -->
+  <div umodal-id="custom-class">
+    <h2>Модальное окно с классом <code>my-class</code></h2>
+    <p>Теперь у этого окна появился дополнительный класс. Хотя это и удобная фича, но стоит сказать, что у самого первого родительского блока модального окна автоматически генерируется уникальный класс по следующей формуле: "umodal_" + значение из атрибута <code>umodal-id</code>. То есть у данного модального окна также имеется класс <code>umodal_custom-class</code>.</p>
+    <p>Благодаря этим штукам можно идентифицировать любое модальное окно на странице и, например, задать для каждого разные стили.</p>
+  </div>
+
   <!-- contact-form -->
   <div umodal-id="contact-form">
-    <h2 class="title title_contact-form">Контактная форма</h2>
+    <h2 class="contact-form__title">Контактная форма</h2>
     <form class="contact-form">
       <fieldset class="contact-form__fieldset">
         <input type="text" placeholder="Имя" class="contact-form__field">
@@ -248,19 +294,21 @@
   <!-- custom-close -->
   <div umodal-id="custom-close">
     <div class="custom-close">
-      <p class="description">Если требуется закрыть модальное окно при нажатии на какой-либо элемент, то необходимо добавить ему класс <code>umodal__shut</code>.</p>
+      <p>Если требуется закрыть модальное окно при нажатии на какой-либо элемент, то необходимо добавить ему класс <code>umodal__shut</code>.</p>
       <button type="button" class="btn custom-close__button umodal__shut">ЗАКРЫТЬ ОКНО</button>
     </div>
   </div>
 
   <!-- dark-modal -->
-  <div umodal-id="dark-modal umodal_inverse">
-    <p class="description" style="max-width: 310px; margin-bottom: 0;">Модальное окно с тёмной цветовой схемой. Просто добавь дополнительный класс и вуаля.</p>
+  <div umodal-id="dark-umodal">
+    <p>Модальное окно с тёмной цветовой схемой.</p>
+    <img src="img/ohmy.gif">
   </div>
 
   <!-- dark-scheme -->
-  <div umodal-id="dark-scheme umodal_inverse">
-    <p class="description" style="max-width: 310px; margin-bottom: 0;">Модальное окно с тёмной цветовой схемой. Просто добавь дополнительный класс <code>umodal_inverse</code> в <code>umodal-id</code>.<br><br>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium repellendus mollitia ex fugit, autem quo voluptatum rem eum odit unde dignissimos! Veniam sed laudantium nulla voluptatem, doloribus, debitis perspiciatis eveniet, magnam esse amet, rerum vero in culpa ex tempora pariatur odio doloremque minus consequuntur nihil. Excepturi quibusdam perferendis saepe beatae?</p>
+  <div umodal-id="dark-scheme">
+    <p>Модальное окно с тёмной цветовой схемой.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium repellendus mollitia ex fugit, autem quo voluptatum rem eum odit unde dignissimos! Veniam sed laudantium nulla voluptatem, doloribus, debitis perspiciatis eveniet, magnam esse amet, rerum vero in culpa ex tempora pariatur odio doloremque minus consequuntur nihil. Excepturi quibusdam perferendis saepe beatae?</p>
   </div>
 
   <script src="jquery.min.js"></script>

@@ -1,25 +1,13 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width">
-  <title>umodal - Лёгкая jQuery Модалочка</title>
+<h2>Эта страница расположена по адресу <a href="another.html">/umodal/another.html</a></h2>
+<p>Чтобы загрузить в модальное окно содержимое другой страницы, необходимо указать её адрес в атрибуте <code>umodal-src</code> кликабельного элемента.</p>
+<p>Из страницы автоматически отфильтруется всё лишнее и будет загружено только то содержимое, которое находится между тегами <code>&lt;body&gt;</code></p>
 
-  <link rel="stylesheet" href="style.css">
-</head>
-<body class="another">
-	<h2>Эта страница расположена по адресу <a href="another.html">/umodal/another.html</a></h2>
-	<p class="description">Чтобы загрузить в модальное окно содержимое другой страницы, необходимо указать её адрес в атрибуте <code>umodal-src</code> кликабельного элемента.</p>
-	<p class="description">Из страницы автоматически отфильтруется всё лишнее и будет загружено только то содержимое, которое находится между тегами <code>&lt;body&gt;</code></p>
-
-	<div class="content" style="padding: 10px 15px; border: 3px dashed #ddd;">
-		<p class="description">
-			Также можно загрузить содержимое из определённого блока другой страницы, для этого есть специальный атрибут <code>umodal-content</code> В значение которого нужно указать любой существующий блок:
-			<ul>
-				<li>по классу: <code>umodal-content=".class"</code></li>
-				<li>или ID: <code>umodal-content="#id"</code></li>
-			</ul> 
-		</p>
-	</div>
-</body>
-</html>
+<div class="content" style="padding: 10px 15px; border: 3px dashed #ddd;">
+  <p>
+    Также можно загрузить содержимое из определённого блока другой страницы, для этого есть специальный атрибут <code>umodal-content</code> В значение которого нужно указать любой существующий блок:
+    <ul>
+      <li>по классу: <code>umodal-content=".class"</code></li>
+      <li>или ID: <code>umodal-content="#id"</code></li>
+    </ul> 
+  </p>
+</div>

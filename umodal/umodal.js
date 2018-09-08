@@ -127,9 +127,13 @@ $(document).ready(function(){
           type: 'GET',
           headers: ajaxAccept,
           success: function(data){
-            var inBody = JSON.stringify(data);
-            if ( !umodalAjaxHeaders && data.match('<body[^>]*>') != null ) {
-              inBody = data.replace(/\r\n|\r|\n/g,'').match('<body[^>]*>(.*?)<\/body>')[0];
+            var inBody = data;
+            if ( !umodalAjaxHeaders || umodalAjaxHeaders == 'xml' ) {
+              if ( data.match('<body[^>]*>') != null ) {
+                inBody = data.replace(/\r\n|\r|\n/g,'').match('<body[^>]*>(.*?)<\/body>')[0];
+              }
+            } else {
+              inBody = JSON.stringify(data);
             }
             umodalCurrentContent.html(inBody).fadeIn(200);
             $('.umodal').removeClass('umodal_loading');
